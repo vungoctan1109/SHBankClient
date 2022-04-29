@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+@model SpringHeroBankClient.Models.Account
+
+<header>
+    <link rel="stylesheet" href="~/Content/StyleSheet1.css" />
+</header>
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="form-outline mb-4">
+                        @Html.LabelFor(m => m.AccountNumber)
+                        @Html.TextBoxFor(m => m.AccountNumber, "", new { @class = "form-control form-control-lg", @placeholder = "Enter account number" })
+                        @Html.ValidationMessageFor(m => m.AccountNumber, "", new { @class = "text-danger fst-italic" })
+                    </div>
+
+                    <div class="form-outline mb-3">
+                        @Html.LabelFor(m => m.SecurityCode)
+                        @Html.PasswordFor(m => m.SecurityCode, new { @class = "form-control form-control-lg", @placeholder = "Enter security code" })
+                        @Html.ValidationMessageFor(m => m.SecurityCode, "", new { @class = "text-danger fst-italic" })
+                    </div>
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="btn btn-danger" value="Register" />
+                        </div>
+                        @if (@ViewBag.Error != null)
+                        {
+                            <div id="popupdiv" style="border: 1px solid red; display: none;">
+                                @ViewBag.Error
+                            </div>
+                        }
+                        <p class="small fw-bold mt-2 pt-1 mb-0">
+                            Don't have an account? <a href="#!"
+                                                      class="link-danger">Register</a>
+                        </p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
