@@ -42,7 +42,8 @@ namespace SpringHeroBankClient.Views
         public ActionResult ShowProfile()
         {
             var service = new Service1Client();
-
+            var list = service.FindTransactionHistoriesByToken(staticToken);
+            ViewBag.List = list;
             return View();
         }
     }
