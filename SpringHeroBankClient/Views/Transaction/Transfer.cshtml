@@ -1,7 +1,30 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Transfer";
 }
+@model SpringHeroBankClient.Models.TransactionHistory
+<header>
+    <link rel="stylesheet" href="~/Content/StyleSheet3.css" />
+</header>
+<div class="transfer-form mt-4">
+    @using (Html.BeginForm("Transfer", "Transaction", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <div class="mb-3">
+            @Html.LabelFor(m => m.ReceiverAccountNumber)
+            @Html.TextBoxFor(m => m.ReceiverAccountNumber, "", new { @class = "form-control form-control-lg", @placeholder = "Enter receiver account number" })
+            @Html.ValidationMessageFor(m => m.ReceiverAccountNumber, "", new { @class = "text-danger fst-italic" })
+        </div>
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Amount)
+            @Html.TextBoxFor(m => m.Amount, "", new { @class = "form-control form-control-lg", @placeholder = "Enter amount money" })
+            @Html.ValidationMessageFor(m => m.Amount, "", new { @class = "text-danger fst-italic" })
+        </div>
+        <div class="text-danger fst-italic mb-2">
+            @ViewBag.Message
+        </div>
 
-<h2>Transfer</h2>
-
+        <div class="form-group">
+            <input type="submit" name="submit" class="btn btn-success" value="Transfer" />
+        </div>
+    }
+</div>

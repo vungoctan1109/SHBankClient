@@ -76,46 +76,4 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CheckValidAccount">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="accountNumber" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckValidAccountResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/SHBankWebService" minOccurs="0" name="CheckValidAccountResult" nillable="true" type="q2:Account" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckToken">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="token" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CheckTokenResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/SHBankWebService" minOccurs="0" name="CheckTokenResult" nillable="true" type="q3:Account" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CreateToken">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="accountNumber" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="CreateTokenResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="CreateTokenResult" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
 </xs:schema>

@@ -9,6 +9,8 @@ namespace SpringHeroBankClient.Views
 {
     public class AccountController : Controller
     {
+        public static string staticToken = "1";
+
         // GET: Account
         public ActionResult Login()
         {
@@ -30,7 +32,7 @@ namespace SpringHeroBankClient.Views
                 }
                 else
                 {
-                    Session["token"] = token;
+                    staticToken = token;
                     return RedirectToAction("ShowProfile");
                 }
             }
